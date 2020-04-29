@@ -1,0 +1,271 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">fitness_center</i>
+            </div>
+            <p class="card-category">Equipments</p>
+            <h3 class="card-title">
+              {{ Equipment.length }}
+              <small></small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <!-- <div class="stats">
+              <i class="material-icons text-danger">warning</i>
+              <a href="javascript:void(0)">Get More Space...</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">library_books</i>
+            </div>
+            <p class="card-category">Quotes</p>
+            <h3 class="card-title">{{ Quotes.length }}</h3>
+          </div>
+          <div class="card-footer">
+            <!-- <div class="stats">
+              <i class="material-icons">date_range</i> Last 24 Hours
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">directions_run</i>
+            </div>
+            <p class="card-category">Exercises</p>
+            <h3 class="card-title">{{ Exercises.length }}</h3>
+          </div>
+          <div class="card-footer">
+            <!-- <div class="stats">
+              <i class="material-icons">local_offer</i> Tracked from Github
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">email</i>
+            </div>
+            <p class="card-category">Posts</p>
+            <h3 class="card-title">{{ Posts.length }}</h3>
+          </div>
+          <div class="card-footer">
+            <!-- <div class="stats">
+              <i class="material-icons">update</i> Just Updated
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">airline_seat_legroom_reduced</i>
+            </div>
+            <p class="card-category">Bodyparts</p>
+            <h3 class="card-title">
+              {{ Bodyparts.length }}
+              <small></small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <!-- <div class="stats">
+              <i class="material-icons text-danger">warning</i>
+              <a href="javascript:void(0)">Get More Space...</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">signal_cellular_alt</i>
+            </div>
+            <p class="card-category">Levels</p>
+            <h3 class="card-title">{{ Levels.length }}</h3>
+          </div>
+          <div class="card-footer">
+            <!-- <div class="stats">
+              <i class="material-icons">date_range</i> Last 24 Hours
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">airline_seat_recline_extra</i>
+            </div>
+            <p class="card-category">Workouts</p>
+            <h3 class="card-title">{{ Workouts.length }}</h3>
+          </div>
+          <div class="card-footer">
+            <!-- <div class="stats">
+              <i class="material-icons">local_offer</i> Tracked from Github
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">emoji_events</i>
+            </div>
+            <p class="card-category">Goals</p>
+            <h3 class="card-title">{{ Goals.length }}</h3>
+          </div>
+          <div class="card-footer">
+            <!-- <div class="stats">
+              <i class="material-icons">update</i> Just Updated
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-warning">
+            <h4 class="nav-tabs-title">Equipment Stats</h4>
+
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs ">
+                  <li class="nav-item col-md-12">
+                    <a
+                      mat-button
+                      class="nav-link pull-right"
+                      routerLink="/equipments"
+                      data-toggle="tab"
+                    >
+                      <i class="material-icons">visibility</i> View All
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content table-responsive">
+              <table class="table">
+                <thead class="text-warning">
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th class="td-actions text-right">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of EquipmentTable; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.title }}</td>
+                    <td class="td-actions text-right">
+                      <button
+                        mat-raised-button
+                        type="button"
+                        matTooltip="Edit Task"
+                        [matTooltipPosition]="'above'"
+                        class="btn btn-warning btn-link btn-sm btn-just-icon"
+                      >
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button
+                        mat-raised-button
+                        type="button"
+                        matTooltip="Remove"
+                        [matTooltipPosition]="'above'"
+                        class="btn btn-danger btn-link btn-sm btn-just-icon"
+                      >
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-success">
+            <h4 class="nav-tabs-title">Quotes Stats</h4>
+
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs ">
+                  <li class="nav-item col-md-12">
+                    <a
+                      mat-button
+                      class="nav-link pull-right"
+                      routerLink="/quotes"
+                      data-toggle="tab"
+                    >
+                      <i class="material-icons">visibility</i> View All
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content table-responsive">
+              <table class="table">
+                <thead class="text-success">
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th class="td-actions text-right">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of Quotestable; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.title }}</td>
+                    <td class="td-actions text-right">
+                      <button
+                        mat-raised-button
+                        type="button"
+                        matTooltip="Edit Task"
+                        [matTooltipPosition]="'above'"
+                        class="btn btn-success btn-link btn-sm btn-just-icon"
+                      >
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button
+                        mat-raised-button
+                        type="button"
+                        matTooltip="Remove"
+                        [matTooltipPosition]="'above'"
+                        class="btn btn-danger btn-link btn-sm btn-just-icon"
+                      >
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

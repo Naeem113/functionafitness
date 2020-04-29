@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row align-items-center mt-4">
+    <div class="col-md-12">
+      <div class="card-body">
+        <div class="row h-100 d-flex align-items-center justify-content-center">
+          <div class="col-md-4">
+            <div class="card card-profile">
+              <div class="card-avatar">
+                <img class="img" src="../../assets/img/Functional_Fitness.jpg" />
+              </div>
+              <div class="card-body">
+                <form #myform="ngForm" (ngSubmit)="signup(myform)">
+                  <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-md-10">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" type="email" name="email" required ngModel />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-md-10">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Password" type="password" name="password" ngModel required />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <br />
+
+                  <div class="clearfix"></div>
+                  <button type="submit" class="btn btn-danger btn-round">
+                    login
+                  </button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

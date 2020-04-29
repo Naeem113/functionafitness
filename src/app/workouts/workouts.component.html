@@ -1,0 +1,266 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row" *ngIf="AddContainer">
+      <div class="col-lg-12 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">airline_seat_recline_extra</i>
+            </div>
+            <p class="card-category"></p>
+            <h3 class="card-title">
+              <small>Add Workout</small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <form
+              #myform="ngForm"
+              (ngSubmit)="addWorkout(myform)"
+              class="col-md-12"
+              style="font-size: large;"
+            >
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      name="title"
+                      ngModel
+                      placeholder="Workout title"
+                      type="text"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field>
+                    <mat-label>Goal</mat-label>
+                    <mat-select name="goals" ngModel>
+                      <mat-option
+                        *ngFor="let item of Goals"
+                        [value]="item.title"
+                        >{{ item.title }}</mat-option
+                      >
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field>
+                    <mat-label>Level</mat-label>
+                    <mat-select name="level" ngModel>
+                      <mat-option
+                        *ngFor="let item of Levels"
+                        [value]="item.title"
+                        >{{ item.title }}</mat-option
+                      >
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <button
+                mat-raised-button
+                (click)="CloseAddContainer()"
+                type="button"
+                class="btn btn-danger pull-right"
+              >
+                Close
+              </button>
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-danger pull-right"
+              >
+                Add
+              </button>
+
+              <div class="clearfix"></div>
+            </form>
+            <!-- <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    <a href="javascript:void(0)">Get More Space...</a>
+                  </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="updateContainer">
+      <div class="col-lg-12 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">airline_seat_recline_extra</i>
+            </div>
+            <p class="card-category"></p>
+            <h3 class="card-title">
+              <small> Update Workout</small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <form
+              #myform="ngForm"
+              (ngSubmit)="updateWorkout(myform)"
+              class="col-md-12"
+              style="font-size: large;"
+            >
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      name="title"
+                      [(ngModel)]="updateitem.title"
+                      placeholder="Update workout"
+                      type="text"
+                    />
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-4">
+                  <mat-form-field>
+                    <mat-label>Level</mat-label>
+                    <mat-select name="Goal" [(ngModel)]="updateitem.goals">
+                      <mat-option
+                        *ngFor="let item of Goals"
+                        [value]="item.title"
+                        >{{ item.title }}</mat-option
+                      >
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-4">
+                  <mat-form-field>
+                    <mat-label>Level</mat-label>
+                    <mat-select name="Level" [(ngModel)]="updateitem.level">
+                      <mat-option
+                        *ngFor="let item of Levels"
+                        [value]="item.title"
+                        >{{ item.title }}</mat-option
+                      >
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <button
+                mat-raised-button
+                (click)="CloseUpdateContainer()"
+                type="button"
+                class="btn btn-danger pull-right"
+              >
+                Close
+              </button>
+
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-danger pull-right"
+              >
+                Update
+              </button>
+
+              <div class="clearfix"></div>
+            </form>
+            <!-- <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    <a href="javascript:void(0)">Get More Space...</a>
+                  </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-danger">
+            <h4 class="nav-tabs-title">All Workouts ({{ Workouts.length }})</h4>
+            <!-- <p class="card-category">
+              Last update :
+              {{ Equipment | date: 'EEEE d MMMM y h:mm a' }}
+            </p> -->
+
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs ">
+                  <li class="nav-item col-md-12">
+                    <button
+                      mat-button
+                      class="nav-link pull-right"
+                      (click)="OpenAddContainer()"
+                      data-toggle="tab"
+                    >
+                      <i class="material-icons">add</i> Add New
+                      <div class="ripple-container"></div>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+                <table class="table">
+                  <thead>
+                    <th>
+                      sr#
+                    </th>
+                    <th>
+                      Title
+                    </th>
+                    <th>
+                      Goal
+                    </th>
+                    <th>
+                      Level
+                    </th>
+                    <th>
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of Workouts; index as i">
+                      <td>
+                        {{ i + 1 }}
+                      </td>
+                      <td style="width: 30%;">
+                        {{ item.title }}
+                      </td>
+                      <td>
+                        {{ item.goals }}
+                      </td>
+                      <td>
+                        {{ item.level }}
+                      </td>
+                      <td class="td-actions text-right">
+                        <button
+                          mat-raised-button
+                          (click)="UpdateSlecetedItem(item)"
+                          type="button"
+                          matTooltip="Edit Task"
+                          [matTooltipPosition]="'above'"
+                          class="btn btn-dark btn-link btn-lr btn-just-icon"
+                        >
+                          <i class="material-icons">edit</i>
+                        </button>
+                        <button
+                          mat-raised-button
+                          (click)="RemoveWorkout(item)"
+                          type="button"
+                          matTooltip="Remove"
+                          [matTooltipPosition]="'above'"
+                          class="btn btn-danger btn-link btn-lr btn-just-icon"
+                        >
+                          <i class="material-icons">close</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
