@@ -10,55 +10,45 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
   {
-    path: '/equipments',
-    title: 'Equipments',
-    icon: 'fitness_center',
+    path: '/what-am-i-feeling',
+    title: 'What am i feeling',
+    icon: 'emoji_emotions',
     class: '',
   },
+  
   {
-    path: '/quotes',
-    title: 'Quotes',
-    icon: 'library_books',
+    path: '/journals',
+    title: 'Journals',
+    icon: 'receipt',
     class: '',
   },
+  
   {
-    path: '/exercises',
-    title: 'Exercises',
-    icon: 'directions_run',
-    class: '',
-  },
-  {
-    path: '/posts',
-    title: 'Posts',
-    icon: 'email',
-    class: '',
-  },
-  {
-    path: '/bodyparts',
-    title: 'Bodyparts',
+    path: '/skills',
+    title: 'Skills',
     icon: 'airline_seat_legroom_reduced',
     class: '',
   },
 
-  {
-    path: '/levels',
-    title: 'Levels',
-    icon: 'signal_cellular_alt',
-    class: '',
-  },
+  // {
+  //   path: '/levels',
+  //   title: 'Levels',
+  //   icon: 'signal_cellular_alt',
+  //   class: '',
+  // },
 
-  {
-    path: '/workouts',
-    title: 'Workouts',
-    icon: 'airline_seat_recline_extra',
-    class: '',
-  },
-  {
-    path: '/goals',
-    title: 'Goals',
-    icon: 'emoji_events',
-    class: '',
-  },
+  // {
+  //   path: '/workouts',
+  //   title: 'Workouts',
+  //   icon: 'airline_seat_recline_extra',
+  //   class: '',
+  // },
+  // {
+  //   path: '/goals',
+  //   title: 'Goals',
+  //   icon: 'emoji_events',
+  //   class: '',
+  // },
 ];
 
 @Component({

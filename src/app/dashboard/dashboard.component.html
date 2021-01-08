@@ -1,16 +1,18 @@
 <div class="main-content">
   <div class="container-fluid">
-    <div class="row">
+    
+    <div class="row" >
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
-          <div class="card-header card-header-warning card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">fitness_center</i>
+          <div class="card-header card-header-warning card-header-icon" >
+            <div class="card-icon" style="background: #7265e3 !important; box-shadow: none !important;">
+              <i class="material-icons">emoji_emotions</i>
             </div>
-            <p class="card-category">Equipments</p>
+            <p class="card-category">Emotions</p>
+            <mat-progress-bar style="width: 30%; margin-top: 8%;" class="card-title pull-right" *ngIf="progressBar"
+    mode="indeterminate" mode="buffer"></mat-progress-bar>
             <h3 class="card-title">
-              {{ Equipment.length }}
-              <small></small>
+              {{Total_Emotions}}
             </h3>
           </div>
           <div class="card-footer">
@@ -23,12 +25,14 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
-          <div class="card-header card-header-success card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">library_books</i>
+          <div class="card-header card-header-success card-header-icon " >
+            <div class="card-icon aap-color2" style=" box-shadow: none !important;">
+              <i class="material-icons">receipt</i>
             </div>
-            <p class="card-category">Quotes</p>
-            <h3 class="card-title">{{ Quotes.length }}</h3>
+            <p class="card-category">Journals
+            </p><mat-progress-bar style="width: 30%; margin-top: 8%;" class="card-title pull-right" *ngIf="progressBar"
+            mode="indeterminate" mode="buffer"></mat-progress-bar>
+            <h3 class="card-title">{{Total_Journals}}</h3>
           </div>
           <div class="card-footer">
             <!-- <div class="stats">
@@ -40,11 +44,12 @@
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
           <div class="card-header card-header-danger card-header-icon">
-            <div class="card-icon">
+            <div class="card-icon"style="background: #7265e3 !important; box-shadow: none !important;">
               <i class="material-icons">directions_run</i>
             </div>
-            <p class="card-category">Exercises</p>
-            <h3 class="card-title">{{ Exercises.length }}</h3>
+            <p class="card-category">Skills</p><mat-progress-bar style="width: 30%; margin-top: 8%;" class="card-title pull-right" *ngIf="progressBar"
+            mode="indeterminate" mode="buffer"></mat-progress-bar>
+            <h3 class="card-title">{{Total_Skills}}</h3>
           </div>
           <div class="card-footer">
             <!-- <div class="stats">
@@ -54,98 +59,31 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
+        <div class="card card-stats ">
           <div class="card-header card-header-info card-header-icon">
-            <div class="card-icon">
+            <div class="card-icon aap-color2" style=" box-shadow: none !important;">
               <i class="material-icons">email</i>
             </div>
-            <p class="card-category">Posts</p>
-            <h3 class="card-title">{{ Posts.length }}</h3>
-          </div>
-          <div class="card-footer">
-            <!-- <div class="stats">
-              <i class="material-icons">update</i> Just Updated
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-header card-header-warning card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">airline_seat_legroom_reduced</i>
-            </div>
-            <p class="card-category">Bodyparts</p>
-            <h3 class="card-title">
-              {{ Bodyparts.length }}
-              <small></small>
+            <p class="card-category">PERFORMANCE</p><mat-progress-bar style="width: 30%; margin-top: 8%;" class="card-title pull-right" *ngIf="progressBar"
+            mode="indeterminate" mode="buffer"></mat-progress-bar>
+            <h3 class="card-title">49,65%
             </h3>
           </div>
           <div class="card-footer">
             <!-- <div class="stats">
-              <i class="material-icons text-danger">warning</i>
-              <a href="javascript:void(0)">Get More Space...</a>
-            </div> -->
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-header card-header-success card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">signal_cellular_alt</i>
-            </div>
-            <p class="card-category">Levels</p>
-            <h3 class="card-title">{{ Levels.length }}</h3>
-          </div>
-          <div class="card-footer">
-            <!-- <div class="stats">
-              <i class="material-icons">date_range</i> Last 24 Hours
-            </div> -->
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-header card-header-danger card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">airline_seat_recline_extra</i>
-            </div>
-            <p class="card-category">Workouts</p>
-            <h3 class="card-title">{{ Workouts.length }}</h3>
-          </div>
-          <div class="card-footer">
-            <!-- <div class="stats">
-              <i class="material-icons">local_offer</i> Tracked from Github
-            </div> -->
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-header card-header-info card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">emoji_events</i>
-            </div>
-            <p class="card-category">Goals</p>
-            <h3 class="card-title">{{ Goals.length }}</h3>
-          </div>
-          <div class="card-footer">
-            <!-- <div class="stats">
               <i class="material-icons">update</i> Just Updated
             </div> -->
           </div>
         </div>
       </div>
     </div>
+    
 
-    <div class="row">
+    <div class="row" hidden>
       <div class="col-lg-6 col-md-12">
         <div class="card">
           <div class="card-header card-header-tabs card-header-warning">
-            <h4 class="nav-tabs-title">Equipment Stats</h4>
+            <h4 class="nav-tabs-title">Sales value</h4>
 
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
@@ -174,9 +112,9 @@
                   <th class="td-actions text-right">Action</th>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of EquipmentTable; index as i">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ item.title }}</td>
+                  <tr >
+                    <td></td>
+                    <td></td>
                     <td class="td-actions text-right">
                       <button
                         mat-raised-button
@@ -207,7 +145,7 @@
       <div class="col-lg-6 col-md-12">
         <div class="card">
           <div class="card-header card-header-tabs card-header-success">
-            <h4 class="nav-tabs-title">Quotes Stats</h4>
+            <h4 class="nav-tabs-title">Total orders</h4>
 
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
@@ -236,9 +174,9 @@
                   <th class="td-actions text-right">Action</th>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of Quotestable; index as i">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ item.title }}</td>
+                  <tr>
+                    <td></td>
+                    <td></td>
                     <td class="td-actions text-right">
                       <button
                         mat-raised-button

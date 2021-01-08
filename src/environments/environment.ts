@@ -6,12 +6,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDcJdAdHVneADXSQ1ReShpKQBPPoj3blBQ",
-    authDomain: "fucntional-fitness.firebaseapp.com",
-    databaseURL: "https://fucntional-fitness.firebaseio.com",
-    projectId: "fucntional-fitness",
-    storageBucket: "fucntional-fitness.appspot.com",
-    messagingSenderId: "271972886473",
-    appId: "1:271972886473:web:b0f8cb5ebca19ed073ea18"
+    apiKey: "AIzaSyArPlDLhPpQsUpGb_nHl9fhfNdyV_rO50o",
+    authDomain: "psychbubble-25c4c.firebaseapp.com",
+    projectId: "psychbubble-25c4c",
+    storageBucket: "psychbubble-25c4c.appspot.com",
+    messagingSenderId: "110261407144",
+    appId: "1:110261407144:web:6dcf87270d423bbee7e19d",
+    measurementId: "G-LPRK5EGKS0"
   },
 };

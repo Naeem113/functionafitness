@@ -6,7 +6,6 @@ import {
   PathLocationStrategy,
 } from '@angular/common';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-navbar',
@@ -24,7 +23,6 @@ export class NavbarComponent implements OnInit {
     location: Location,
     private element: ElementRef,
     private router: Router,
-    private afauth: AngularFireAuth
   ) {
     this.location = location;
     this.sidebarVisible = false;
@@ -123,7 +121,6 @@ export class NavbarComponent implements OnInit {
   //******************************* LOGOUT
 
   logout() {
-    this.afauth.auth.signOut();
     this.router.navigate(['']);
   }
 

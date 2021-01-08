@@ -1,15 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutService } from 'app/dataService.service';
-
-import { Subscription } from 'rxjs';
-import { quotes } from 'app/Models/QuotesModel';
-import { equipment } from 'app/Models/EquipmentModel';
-import { exercises } from 'app/Models/ExercisesModel';
-import { bodyparts } from 'app/Models/BodypartsModel';
-import { levels } from 'app/Models/LevelsModel';
-import { workouts } from 'app/Models/WorkoutsModel';
-import { goals } from 'app/Models/GoalsModel';
-import { posts } from 'app/Models/PostsModel';
+import firebase from "firebase/app";
 
 @Component({
   selector: 'app-dashboard',
@@ -21,107 +11,40 @@ export class DashboardComponent implements OnInit {
   //                                                        CONSTRUCTOR                                             /
   //****************************************************************************************************************/
 
-  constructor(private ServiceData: LayoutService) {}
+  constructor() {
+    firebase.firestore().collection('Emotions')
+    .get()
+    .then((response) => {
+      this.Total_Emotions = response.size;
+      this.spinner = false;
+    });
+    firebase.firestore().collection('Skills')
+    .get()
+    .then((response) => {
 
-  //****************************************************************************************************************/
-  //                                                         ngOnInIt                                               /
-  //****************************************************************************************************************/
+      this.Total_Skills = response.size;
+      console.log(this.Total_Skills);
 
-  ngOnInit() {
-    this.ServiceDataSubscription();
+      this.spinner = false;
+    });
+    firebase.firestore().collection('Journals')
+    .get()
+    .then((response) => {
+      this.Total_Journals = response.size;
+      this.spinner = false;
+      this.progressBar = false;
+    });
+   }
+   Total_Emotions:any;
+   Total_Skills:any;
+   Total_Journals:any;
+   progressBar:boolean=true
+
+   spinner:boolean=true;
+  ngOnInit(): void {
   }
 
-  //****************************************************************************************************************/
-  //                                                   VARIABLES DECLARATION                                        /
-  //****************************************************************************************************************/
 
-  Posts: posts[] = [];
-  Goals: goals[] = [];
-  Workouts: workouts[] = [];
-  Levels: levels[] = [];
-  Bodyparts: bodyparts[] = [];
-  Equipment: equipment[] = [];
-  EquipmentTable: equipment[] = [];
-  Exercises: exercises[] = [];
-  Quotes: quotes[] = [];
-  Quotestable: quotes[] = [];
-  Subscription: Subscription[] = [];
 
-  //****************************************************************************************************************/
-  //                                             SERVICES DATA SUBSCRIPTION FUNCTION                                /
-  //****************************************************************************************************************/
-
-  ServiceDataSubscription() {
-    this.Subscription.push(
-      this.ServiceData.Equipments.subscribe((res) => {
-        this.Equipment = res;
-        if (res.length < 4) {
-          this.EquipmentTable = this.Equipment;
-        } else {
-          for (let index = 0; index < 4; index++) {
-            this.EquipmentTable.push(res[index]);
-          }
-        }
-      })
-    );
-
-    this.Subscription.push(
-      this.ServiceData.Quotes.subscribe((res) => {
-        this.Quotes = res;
-        if (res.length < 4) {
-          this.Quotestable = this.Quotes;
-        } else {
-          for (let index = 0; index < 3; index++) {
-            this.Quotestable.push(res[index]);
-          }
-        }
-      })
-    );
-
-    this.Subscription.push(
-      this.ServiceData.Exercises.subscribe((res) => {
-        this.Exercises = res;
-      })
-    );
-
-    this.Subscription.push(
-      this.ServiceData.Bodyparts.subscribe((res) => {
-        this.Bodyparts = res;
-      })
-    );
-
-    this.Subscription.push(
-      this.ServiceData.Levels.subscribe((res) => {
-        this.Levels = res;
-      })
-    );
-
-    this.Subscription.push(
-      this.ServiceData.Workouts.subscribe((res) => {
-        this.Workouts = res;
-      })
-    );
-
-    this.Subscription.push(
-      this.ServiceData.Goals.subscribe((res) => {
-        this.Goals = res;
-      })
-    );
-
-    this.Subscription.push(
-      this.ServiceData.Posts.subscribe((res) => {
-        this.Posts = res;
-      })
-    );
-  }
-
-  //****************************************************************************************************************/
-  //                                                        ngOnDestroy                                             /
-  //****************************************************************************************************************/
-
-  ngOnDestroy(): void {
-    for (const iterator of this.Subscription) {
-      iterator.unsubscribe();
-    }
-  }
+  
 }

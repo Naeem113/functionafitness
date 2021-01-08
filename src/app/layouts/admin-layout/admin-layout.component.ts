@@ -11,7 +11,6 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from 'jquery';
-import { LayoutService } from '../../dataService.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -26,7 +25,7 @@ export class AdminLayoutComponent implements OnInit {
   constructor(
     public location: Location,
     private router: Router,
-    private authntication: LayoutService
+  
   ) {
     // this.authntication.isathenticate();
   }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutService } from './dataService.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +6,8 @@ import { LayoutService } from './dataService.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(private checkAuthSatat: LayoutService) {}
+  constructor() {}
 
   ngOnInit() {
-    this.checkAuthSatat.isathenticate();
   }
 }

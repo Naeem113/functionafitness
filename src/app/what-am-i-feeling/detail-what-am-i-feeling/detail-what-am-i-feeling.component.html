@@ -1,0 +1,77 @@
+<div class="main-content">
+    <div class="container-fluid">
+  
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card">
+            <div class="card-header card-header-tabs card-header-success" style="background: #7265e3 !important; box-shadow: none !important;">
+              <h4 class="nav-tabs-title">Emotion Detail </h4>
+              <!-- <p class="card-category">
+                Last update :
+                {{ Equipment | date: 'EEEE d MMMM y h:mm a' }}
+              </p> -->
+  
+              <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                  <ul class="nav nav-tabs" data-tabs="tabs ">
+                    <li class="nav-item col-md-12">
+                      <button
+                        mat-button
+                        class="nav-link pull-right btn"
+                        routerLink="/what-am-i-feeling"
+                        data-toggle="tab"
+                      >
+                        <i class="material-icons">keyboard_backspace</i> Back
+                        <div class="ripple-container"></div>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane active" id="profile">
+                  <mat-progress-bar *ngIf="progressBar2"
+              mode="indeterminate" mode="buffer"></mat-progress-bar>
+              <div *ngIf="progressBar">
+              <h4 style="font-weight: 500;">Primary Emotion:<span class="ml-2">{{emotionsList.primary_emotion}}</span></h4>
+                  <table class="table" >
+                    
+                    <thead>
+                     <!-- <th>
+                        Primary Emotion
+                      </th> -->
+                      <th>
+                        Secondary Emotion
+                      </th>
+                      <th>
+                        Descrition
+                      </th>
+    
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of emotionsList.data; index as i">
+                        <!-- <td  style="width: 20%;">
+                            {{emotionsList.primary_emotion}}
+                        </td> -->
+                        <td style="width: 30%;">
+                          {{item.secondary_emotion}}
+                        </td>
+                        <td style="width: 70%;">
+                            {{item.description}}
+                          </td>
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
